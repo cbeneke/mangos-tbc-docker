@@ -1,0 +1,19 @@
+version: '2'
+services:
+
+  ## Database
+  percona:
+    image: percona:latest
+    volumes:
+    - ./volumes/percona/data:/var/lib/mysql
+
+  ## cMaNGOS
+  cmangos:
+    image: cmangos:latest
+    links:
+    - percona
+    volumes:
+    - ./volumes/cmangos:/srv/cmangos
+
+
+# vim:set et sw=2 sts=2:
