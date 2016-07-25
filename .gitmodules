@@ -1,0 +1,9 @@
+[submodule "cmangos"]
+	path = cmangos
+	url = git@github.com:cmangos/mangos-tbc.git
+[submodule "acid"]
+	path = acid
+	url = git@github.com:ACID-Scripts/TBC.git
+[submodule "tbcdb"]
+	path = tbcdb
+	url = git@github.com:TBC-DB/Database.git
