@@ -8,12 +8,20 @@ services:
     - ./volumes/percona/data:/var/lib/mysql
 
   ## cMaNGOS
-  cmangos:
+  mangosd:
+    image: mangosd:latest
+    links:
+    - percona
+    volumes:
+    - ../data:/opt/data
+    - ./volumes/cmangos:/opt/cmangos
+
+  realmd:
     image: cmangos:latest
     links:
     - percona
     volumes:
-    - ./volumes/cmangos:/srv/cmangos
+    - ./volumes/cmangos:/opt/cmangos
 
 
 # vim:set et sw=2 sts=2:
