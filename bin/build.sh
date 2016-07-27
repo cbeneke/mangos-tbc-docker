@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # read full path of parent directory
-DIR="$( readlink -f $(dirname $(dirname "${BASH_SOURCE[0]}")))"
+DIR="$(dirname "$(readlink -f $(dirname "${BASH_SOURCE[0]}" ))" )"
 DOCKER=${DIR}/docker/volumes/cmangos
 
 mkdir -p ${DIR}/build
