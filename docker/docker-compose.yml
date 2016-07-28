@@ -9,19 +9,25 @@ services:
 
   ## cMaNGOS
   mangosd:
-    image: mangosd:latest
+    image: mangosd
     links:
     - percona
     volumes:
     - ../data:/opt/data
-    - ./volumes/cmangos:/opt/cmangos
+    - ./volumes/cmangos:/opt
+    ports:
+    - 8085:8085
+    tty: true
 
   realmd:
-    image: cmangos:latest
+    image: realmd
     links:
     - percona
+    - mangosd
     volumes:
-    - ./volumes/cmangos:/opt/cmangos
-
+    - ./volumes/cmangos:/opt
+    ports:
+    - 3724:3724
+    tty: true
 
 # vim:set et sw=2 sts=2:
