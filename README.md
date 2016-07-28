@@ -27,10 +27,12 @@ You can start up the cMaNGOS stack with:
 Please update missing database updates with
 
     docker run -it \
-    --net={{ docker network }} \
+    --net={{DOCKER_NETWORK}} \
     -v ./cmangos/sql:/srv/sql \
     -v ./docker/volumes/percona/data:/var/lib/mysql \
-    --link {{ percona container }} \
+    --link {{PERCONA_CONATINER_NAME}} \
     --rm percona /bin/bash
 
-    mysql -u root -p -D {{ database }} < /srv/sql/updates/{{ update-sql-file }}
+    mysql -u root -p -D {{DATABASE}} < /srv/sql/updates/{{UPDATE_SQL_FILE}}
+    
+replace the {{VARIABLES}} accordingly.
