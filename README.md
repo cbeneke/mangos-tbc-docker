@@ -16,6 +16,11 @@ You can then run
 
 to stop (and delete) the temporary image. Your build should now be ready to go.  
 
+## configuration
+Extract the WoW Client data from the client and place it in the data folder. You can find further information for extracting on the cMaNGOS page (https://github.com/cmangos/issues/wiki/Installation-Instructions#extract-files-from-the-client).
+
+Please set up your mangosd and realmd configurations in ./docker/volumes/cmangos/etc/ and rename the files from {{NAME}}.conf.dist to {{NAME}}.conf.
+
 ## running
 You can start up the cMaNGOS stack with:
 

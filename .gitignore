@@ -1,3 +1,4 @@
-./build
-./data/*
-./docker/volumes/cmangos/*
+build
+data
+docker/volumes/cmangos
+docker/volumes/percona/data
