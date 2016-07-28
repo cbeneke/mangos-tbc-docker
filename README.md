@@ -1,17 +1,26 @@
 # cMaNGOS docker files
 
-## docker-compose
+## building
+build the cmangos files with
+
+  ./bin/build.sh
+  
+and initialize the docker images with
+
+  ./bin/init-docker.sh
+
+After running this script, wait for the percona image to be fully initialized (check `docker logs mangos-percona` for the MySQL stating "[Note] mysqld: ready for connections."
+You can then run
+
+  docker stop mysql-percona
+
+to stop (and delete) the temporary image. Your build should now be ready to go.  
+
+## running
 You can start up the cMaNGOS stack with:
 
   cd docker
   docker-compose up -d
-
-## cMaNGOS image
-before starting the cMaNGOS stack, you must build the docker image with the init-docker.sh script
-from the bin folder:
-
-  cd bin
-  ./init-docker.sh
 
 ## FAQ
 ### ERROR: Database update needed
