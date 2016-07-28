@@ -1,12 +1,18 @@
 # cMaNGOS docker files
 
+Check out the submodules before anything.
+
 ## building
-build the cmangos files with
+To enable access to the database update the ./cmangos/sql/create/db_create_mysql.sql file and 
+
+        CREATE USER 'mangos'@'172.%' IDENTIFIED BY 'mangos';
+        GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, LOCK TABLES, CREATE TEMPORARY TABLES ON `mangos`.* TO 'mangos'@'172.%';
+        GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, LOCK TABLES, CREATE TEMPORARY TABLES ON `characters`.* TO 'mangos'@'172.%';
+        GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, LOCK TABLES, CREATE TEMPORARY TABLES ON `realmd`.* TO 'mangos'@'172.%';
+
+to expand the access rights to the 172.0.0.0/8 network (instead of 127.0.0.1) for the mangos user. Then build the cmangos files and initialize the docker image with
 
     ./bin/build.sh
-  
-and initialize the docker images with
-
     ./bin/init-docker.sh
 
 After running this script, wait for the percona image to be fully initialized (check `docker logs mangos-percona` for the MySQL stating "[Note] mysqld: ready for connections."
@@ -20,6 +26,18 @@ to stop (and delete) the temporary image. Your build should now be ready to go.
 Extract the WoW Client data from the client and place it in the data folder. You can find further information for extracting on the cMaNGOS page (https://github.com/cmangos/issues/wiki/Installation-Instructions#extract-files-from-the-client).
 
 Please set up your mangosd and realmd configurations in ./docker/volumes/cmangos/etc/ and rename the files from {{NAME}}.conf.dist to {{NAME}}.conf.
+
+For a basic installation you only need to update the following settings:
+mangosd.conf
+        DataDir = "/opt/data"
+        LogsDir = "/opt/logs"
+        LoginDatabaseInfo     = "percona;3306;mangos;mangos;realmd"
+        WorldDatabaseInfo     = "percona;3306;mangos;mangos;mangos"
+        CharacterDatabaseInfo = "percona;3306;mangos;mangos;characters"
+
+realmd.conf
+        LoginDatabaseInfo = "percona;3306;mangos;mangos;realmd"
+        LogsDir = "/opt/logs"
 
 ## running
 You can start up the cMaNGOS stack with:
