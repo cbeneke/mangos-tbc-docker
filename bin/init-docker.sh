@@ -21,6 +21,7 @@ done
 
 docker run \
     --name mangos-percona \
+    --rm \
     -e MYSQL_ROOT_PASSWORD=${MYSQL_PWD} \
     -v ${DOCKER}/volumes/percona/data:/var/lib/mysql \
     -v ${CMANGOSSQL}:/srv/mangos \
