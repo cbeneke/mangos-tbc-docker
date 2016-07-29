@@ -1,5 +1,7 @@
 == Arch Linux ==
 
+docker
+docker-compose
 boost
 cmake
 libmariadbclient

@@ -19,8 +19,9 @@ The password is optional. If none specified "mangos" will be used as password fo
 You can then run
 
         docker stop mangos-percona
+        docker rm mangos-percona
 
-to stop (and delete) the temporary image. Your build should now be ready to go.  
+to stop and delete the temporary image. Your build should now be ready to go.  
 
 ## configuration
 Extract the WoW Client data from the client and place it in the data folder. You can find further information for extracting on the cMaNGOS page (https://github.com/cmangos/issues/wiki/Installation-Instructions#extract-files-from-the-client).
@@ -54,8 +55,8 @@ Please update missing database updates with
 
         docker run -it \
         --net={{DOCKER_NETWORK}} \
-        -v ./cmangos/sql:/srv/sql \
-        -v ./docker/volumes/percona/data:/var/lib/mysql \
+        -v {{PATH_TO_INSTALLATION}}/cmangos/sql:/srv/sql \
+        -v {{PATH_TO_INSTALLATION}}/docker/volumes/percona/data:/var/lib/mysql \
         --link {{PERCONA_CONATINER_NAME}} \
         --rm percona /bin/bash
 
