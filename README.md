@@ -1,6 +1,6 @@
 # cMaNGOS docker files
 
-Check out the submodules before anything.
+Check out the submodules before anything. Therefore choose between the .gitmodules.ssh and .gitmodules.http version and either link or copy the file to .gitmodules.
 
 ## building
 To enable access to the database update the ./cmangos/sql/create/db_create_mysql.sql file and 
