@@ -28,7 +28,9 @@ Extract the WoW Client data from the client and place it in the data folder. You
 Please set up your mangosd and realmd configurations in ./docker/volumes/cmangos/etc/ and rename the files from {{NAME}}.conf.dist to {{NAME}}.conf.
 
 For a basic installation you only need to update the following settings:
+
 mangosd.conf
+
         DataDir = "/opt/data"
         LogsDir = "/opt/logs"
         LoginDatabaseInfo     = "percona;3306;mangos;mangos;realmd"
@@ -36,6 +38,7 @@ mangosd.conf
         CharacterDatabaseInfo = "percona;3306;mangos;mangos;characters"
 
 realmd.conf
+
         LoginDatabaseInfo = "percona;3306;mangos;mangos;realmd"
         LogsDir = "/opt/logs"
 
