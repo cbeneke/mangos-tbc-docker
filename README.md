@@ -59,7 +59,7 @@ Please update missing database updates with
         --link {{PERCONA_CONATINER_NAME}} \
         --rm percona /bin/bash
 
-        mysql -u root -p -D {{DATABASE}} < /srv/sql/updates/{{UPDATE_SQL_FILE}}
+        mysql -u root -p -D {{DATABASE}} -h {{PERCONA_CONTAINER_NAME}} < /srv/sql/updates/{{UPDATE_SQL_FILE}}
     
 replace the {{VARIABLES}} accordingly.
 
