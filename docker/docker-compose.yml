@@ -15,6 +15,7 @@ services:
     volumes:
     - ../data:/opt/data
     - ./volumes/cmangos:/opt
+    - ./volumes/config/mangosd-1:/opt/etc
     ports:
     - 8085:8085
     tty: true
@@ -26,6 +27,7 @@ services:
     - mangosd
     volumes:
     - ./volumes/cmangos:/opt
+    - ./volumes/config/realmd:/opt/etc
     ports:
     - 3724:3724
     tty: true

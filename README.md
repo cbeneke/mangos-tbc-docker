@@ -26,22 +26,9 @@ to stop and delete the temporary image. Your build should now be ready to go.
 ## configuration
 Extract the WoW Client data from the client and place it in the data folder. You can find further information for extracting on the cMaNGOS page (https://github.com/cmangos/issues/wiki/Installation-Instructions#extract-files-from-the-client).
 
-Please set up your mangosd and realmd configurations in ./docker/volumes/cmangos/etc/ and rename the files from {{NAME}}.conf.dist to {{NAME}}.conf.
+Please set up your mangosd and realmd configurations in ./docker/volumes/config/. Therefore copy the files from ./docker/volumes/cmangos/etc into respective ./docker/volumes/config/mangosd-{{NR}} and ./docker/volumes/config/realmd  and rename the files from {{NAME}}.conf.dist to {{NAME}}.conf. 
 
-For a basic installation you only need to update the following settings:
-
-mangosd.conf
-
-        DataDir = "/opt/data"
-        LogsDir = "/opt/logs"
-        LoginDatabaseInfo     = "percona;3306;mangos;mangos;realmd"
-        WorldDatabaseInfo     = "percona;3306;mangos;mangos;mangos"
-        CharacterDatabaseInfo = "percona;3306;mangos;mangos;characters"
-
-realmd.conf
-
-        LoginDatabaseInfo = "percona;3306;mangos;mangos;realmd"
-        LogsDir = "/opt/logs"
+For a basic installation you can use the default files from the ./docker/volmes/config/ folder.
 
 ## running
 You can start up the cMaNGOS stack with:
