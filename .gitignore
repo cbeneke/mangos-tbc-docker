@@ -1,4 +1,36 @@
+#
+# NOTE! Don't add files that are generated in specific
+# subdirectories here. Add them in the ".gitignore" file
+# in that subdirectory instead.
+#
+
+#
+# Normal rules
+#
+.*
+*.o
+*.o.*
+*.a
+*.so
+*.so.dbg
+*.bin
+*.gz
+
+#
+# Top-level generic files
+#
 build
-data
-docker/volumes/cmangos
-docker/volumes/percona/data
+tags
+TAGS
+!.gitignore
+!.gitattributes
+!.travis.yml
+
+#
+# Editors / debuggers / other output files
+#
+*~
+*.bak
+*.orig
+*.patch
+callgrind.out.*
