@@ -14,7 +14,6 @@ CMANGOSSQL=${DIR}/cmangos/sql
 ACIDSQL=${DIR}/acid
 DBSQL=${DIR}/tbcdb
 
-
 for image in $(ls ${DOCKER}/images); do
     docker build -t ${image} ${DOCKER}/images/${image}
 done

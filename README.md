@@ -13,9 +13,9 @@ To enable access to the database update the ./cmangos/sql/create/db_create_mysql
 to expand the access rights to the 172.0.0.0/8 network (instead of 127.0.0.1) for the mangos user. Then build the cmangos files and initialize the docker image with
 
         ./bin/build.sh
-        ./bin/init-docker.sh
+        ./bin/init-docker.sh [ {{DATABASE_ROOT_PASSWORD}} ]
 
-After running this script, wait for the percona image to be fully initialized (check `docker logs mangos-percona` for the MySQL stating "[Note] mysqld: ready for connections."
+The password is optional. If none specified "mangos" will be used as password for the database user root. After running this script, wait for the percona image to be fully initialized (check `docker logs mangos-percona` for the MySQL stating "[Note] mysqld: ready for connections."
 You can then run
 
         docker stop mangos-percona
