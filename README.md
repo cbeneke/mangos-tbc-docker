@@ -60,3 +60,13 @@ and add possibly missing database updates as described above. Then restart the d
 
         cd docker
         docker-compose restart
+
+### How can I access the mangos terminal?
+Just attach to the running docker container with
+
+        docker attach {{MANGOSD_CONTAINER_NAME}}
+
+you can leave the interface with `CTRL+p CTRL+q`.
+
+### How can I access the mysql cli?
+Please use the `./bin/mysql.sh` binary to open a mysql cli for the percona docker image. If you use different docker names or a different network you have to edit the `NET` and `DB` variables. There will be a optional command line parameter to change these later.
