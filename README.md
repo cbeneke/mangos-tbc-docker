@@ -3,14 +3,14 @@
 Check out the submodules before anything. Therefore choose between the .gitmodules.ssh and .gitmodules.http version and either link or copy the file to .gitmodules.
 
 ## building
-To enable access to the database update the ./cmangos/sql/create/db_create_mysql.sql file and 
+To enable access to the database update the ./cmangos/sql/create/db_create_mysql.sql file and change 'localhost' to '172.%'. The last four lines should then look like this:
 
         CREATE USER 'mangos'@'172.%' IDENTIFIED BY 'mangos';
         GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, LOCK TABLES, CREATE TEMPORARY TABLES ON `mangos`.* TO 'mangos'@'172.%';
         GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, LOCK TABLES, CREATE TEMPORARY TABLES ON `characters`.* TO 'mangos'@'172.%';
         GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, LOCK TABLES, CREATE TEMPORARY TABLES ON `realmd`.* TO 'mangos'@'172.%';
 
-to expand the access rights to the 172.0.0.0/8 network (instead of 127.0.0.1) for the mangos user. Then build the cmangos files and initialize the docker image with
+This will expand the access rights to the 172.0.0.0/8 network (instead of 127.0.0.1) for the mangos user. Then build the cmangos files and initialize the docker image with
 
         ./bin/build.sh
         ./bin/init-docker.sh [ {{DATABASE_ROOT_PASSWORD}} ]
