@@ -18,6 +18,7 @@ services:
     - ./volumes/config/mangosd-1:/opt/etc
     ports:
     - 8085:8085
+    stdin_open: true
     tty: true
 
   realmd:
@@ -30,6 +31,7 @@ services:
     - ./volumes/config/realmd:/opt/etc
     ports:
     - 3724:3724
+    stdin_open: true
     tty: true
 
 # vim:set et sw=2 sts=2:
