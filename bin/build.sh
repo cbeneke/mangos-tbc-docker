@@ -4,11 +4,14 @@
 DIR="$(dirname "$(readlink -f $(dirname "${BASH_SOURCE[0]}" ))" )"
 DOCKER=${DIR}/docker/volumes/cmangos
 
+MANGOS=eluna
+MAKEPARAMS="-j5"
+
 mkdir -p ${DIR}/build
 mkdir -p ${DOCKER}
 
 cd ${DIR}/build
-cmake ../cmangos -DCMAKE_INSTALL_PREFIX=${DOCKER}
+cmake ../${MANGOS} -DCMAKE_INSTALL_PREFIX=${DOCKER}
 
-make -j5
+make ${MAKEPARAMS}
 make install

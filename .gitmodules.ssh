@@ -7,3 +7,6 @@
 [submodule "tbcdb"]
 	path = tbcdb
 	url = git@github.com:TBC-DB/Database.git
+[submodule "eluna"]
+	path = eluna
+	url = git@github.com:ElunaLuaEngine/ElunaMangosTbc.git
