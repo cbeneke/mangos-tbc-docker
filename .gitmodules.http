@@ -7,3 +7,9 @@
 [submodule "tbcdb"]
     path = tbcdb
     url = https://github.com/TBC-DB/Database.git
+[submodule "eluna"]
+	path = eluna
+	url = https://github.com/ElunaLuaEngine/ElunaMangosTbc.git
+[submodule "docker/volumes/eluna-scripts"]
+	path = docker/volumes/eluna-scripts
+	url = https://github.com/sattelite/ElunaScripts.git

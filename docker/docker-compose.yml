@@ -16,6 +16,7 @@ services:
     - ../data:/opt/data
     - ./volumes/cmangos:/opt
     - ./volumes/config/mangosd-1:/opt/etc
+    - ./volumes/eluna-scripts:/opt/lua_scripts
     ports:
     - 8085:8085
     stdin_open: true
